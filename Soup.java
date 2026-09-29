@@ -1,3 +1,8 @@
+
+//Name: Yuna Kim Brooks
+//Date: 9/25/26
+//Description: This program will produce soup that will only contain letters that spell out specific words in the hopes of subliminally influencing the customers 
+
 public class Soup {
     //these are instance variables 
     private String letters;
@@ -6,7 +11,7 @@ public class Soup {
     //this is a constructor it sets the instance variables (more on this later in the year)
     public Soup(){
         letters ="";
-        company = "none";
+        company = "none"; 
     }
 
 
@@ -29,30 +34,36 @@ public class Soup {
 
     //adds a word to the pool of letters known as "letters"
     public void add(String word){
+    letters += word; 
 
     }
 
 
     //Use Math.random() to get a random character from the letters string and return it.
     public char randomLetter(){
-        return 'a';
+      
+        return   letters.charAt((int)(Math.random()*letters.length()));
     }
 
 
     //returns the letters currently stored with the company name placed directly in the center of all
     //the letters
     public String companyCentered(){
-        return "";
+        return letters.substring(0, letters.length()/2)+company+letters.substring(letters.length()/2);
     }
 
-
+    
     //should remove the first available vowel from letters. If there are no vowels this method has no effect.
     public void removeFirstVowel(){
-        
+        letters=letters.replaceFirst("[aeiouAEIOU]","");
+
     }
 
     //should remove "num" letters from a random spot in the string letters. You may assume num never exceeds the length of the string.
     public void removeSome(int num){
+    int random=((int)Math.random()*letters.length());
+    letters= letters.substring(0, random)+letters.substring(random + num);
+
 
     }
 
