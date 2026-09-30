@@ -33,6 +33,8 @@ public class Soup {
 //below are the functions you'll be writing.
 
     //adds a word to the pool of letters known as "letters"
+    //precondition: the word is not null and contains only letters
+    //postcondition: the word is added to the letters string
     public void add(String word){
     letters += word; 
 
@@ -40,6 +42,8 @@ public class Soup {
 
 
     //Use Math.random() to get a random character from the letters string and return it.
+    //precondition: letters is not empty
+    //postcondition: a random letter from letters is returned
     public char randomLetter(){
       
         return   letters.charAt((int)(Math.random()*letters.length()));
@@ -48,27 +52,34 @@ public class Soup {
 
     //returns the letters currently stored with the company name placed directly in the center of all
     //the letters
+    //precondition: letters is not empty
+    //postcondition: the letters string is returned with the company name in the center
     public String companyCentered(){
         return letters.substring(0, letters.length()/2)+company+letters.substring(letters.length()/2);
     }
 
     
     //should remove the first available vowel from letters. If there are no vowels this method has no effect.
+    //precondition: letters is not empty
+    //postcondition: the first vowel in letters is removed
     public void removeFirstVowel(){
         letters=letters.replaceFirst("[aeiouAEIOU]","");
 
     }
 
     //should remove "num" letters from a random spot in the string letters. You may assume num never exceeds the length of the string.
+    //precondition: letters is not empty
+    //postcondition: "num" letters are removed from a random spot in the string letters 
     public void removeSome(int num){
     int random=((int)Math.random()*letters.length());
     letters= letters.substring(0, random)+letters.substring(random + num);
 
-
     }
 
     //should remove the word "word" from the string letters. If the word is not found in letters then it does nothing.
+    //precondition: letters is not empty
+    //postcondition: the first occurrence of "word" is removed from letters
     public void removeWord(String word){
-        
+        letters=letters.replaceFirst(word,"");
     }
 }
